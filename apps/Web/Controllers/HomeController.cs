@@ -4,21 +4,16 @@ using Web.Models;
 
 namespace Web.Controllers;
 
-public class HomeController : Controller
+public class HomeController(IConfiguration configuration, IHttpClientFactory httpClientFactory) : Controller
 {
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        var apiUrl = configuration["ApiUrl"];
+        var apiPath = $"{apiUrl}/hello";
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        var client = httpClientFactory.CreateClient();
+        var response = await client.GetStringAsync(apiPath);
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View((object)response);
     }
 }
