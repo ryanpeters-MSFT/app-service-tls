@@ -15,7 +15,7 @@ This sandbox contains two .NET 8 applications - web and API. The "web" applicati
 ## Resource Deployment
 
 1. Invoke `.\setup.ps1` to provision an App Service with TLS 1.3 and an Windows 2019 VM
-2. Deploy the "web" and "API" apps. 
+2. Deploy the "web" and "API" apps using your method of choice. 
     - For example, deploy the "web" app to the VM and the "API" to the App Service and test connectivity.
     - As an alternate, deploy the "API" to the VM and connect to it from the "web" app deployed to the App Service.
     - For either scenario, ensure the `ApiUrl` in `appsettings.json` (or global website configuration) is set to the base URL of the API endpoint. 
