@@ -14,6 +14,9 @@ public class HomeController(IConfiguration configuration, IHttpClientFactory htt
         var client = httpClientFactory.CreateClient();
         var response = await client.GetStringAsync(apiPath);
 
-        return View((object)response);
+        ViewBag.ApiPath = apiPath;
+        ViewBag.Response = response;
+
+        return View();
     }
 }

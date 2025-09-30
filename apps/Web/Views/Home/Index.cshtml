@@ -1,8 +1,13 @@
-﻿@model string
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">@Model</h1>
+    <h1 class="display-4">API Endpoint Test</h1>
+
+    <h3>Endpoint</h3>
+    <pre>@ViewBag.ApiPath</pre>
+
+    <h3>Response</h3>
+    <pre>@ViewBag.Response</pre>
 </div>
